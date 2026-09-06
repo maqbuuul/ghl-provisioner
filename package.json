@@ -1,0 +1,11 @@
+{
+  "name": "ghl-provisioner",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Provision a GoHighLevel client account from the command line, then verify it actually got built.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "provision": "node scripts/provision-showrate.mjs"
+  }
+}
