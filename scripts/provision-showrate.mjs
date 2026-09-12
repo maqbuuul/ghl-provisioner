@@ -32,8 +32,11 @@ if (!locationId || locationId.startsWith('--')) {
   console.error('Usage: node provision-showrate.mjs --location <locationId> [--dry-run]');
   process.exit(1);
 }
-if (!token) {
-  console.error('GHL_API_TOKEN is not set.');
+// A dry run makes no API calls, so it must not require a token. Demanding one
+// here meant the plan could not be reviewed before an account existed — which
+// is exactly when reviewing it is most useful.
+if (!token && !dryRun) {
+  console.error('GHL_API_TOKEN is not set. Use --dry-run to print the plan without it.');
   process.exit(1);
 }
 
